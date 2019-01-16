@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   inputChangeHandler = (event) => {
-    this.setState({text: event.target.value});
+    this.setState({userInput: event.target.value});
   }
 
 
