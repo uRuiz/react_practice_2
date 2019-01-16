@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import Validation from './Validation/Validation';
 
 class App extends Component {
 
   state = {
-    text: ''
+    userInput: '',
+    inputDefaultText: 'Introduce a paragraph'
   }
 
-  textLengthHandler = (event) => {
-    this.setState({text: event.target.value})     
+  inputChangeHandler = (event) => {
+    this.setState({text: event.target.value});
   }
 
 
@@ -25,8 +27,12 @@ class App extends Component {
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
 
-        <input type="text" onChange={this.textLengthHandler}/>
-        <p>Text length: {this.state.text.length}</p>
+        <input 
+          type="text" 
+          onChange={this.inputChangeHandler} 
+          value={this.state.userInput}/>
+        <p>{this.state.userInput}</p>
+        <Validation inputLength={this.state.userInput.length}/>
       </div>
     );
   }
